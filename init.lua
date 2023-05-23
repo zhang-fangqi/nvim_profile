@@ -16,11 +16,11 @@ require('plug')      -- Plugins
 -- PLUGINS: Add this section
 require('impatient')
 require('nvim-tree').setup{}
-require('lualine').setup{
-	options = {
-		theme = 'dracula-nvim'
-	}
-}
+-- require('lualine').setup{
+-- 	options = {
+-- 		theme = 'dracula-nvim'
+-- 	}
+-- }
 require('nvim-autopairs').setup{}
 require('telescope').setup{
   defaults = {

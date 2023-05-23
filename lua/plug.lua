@@ -18,7 +18,9 @@ return require('packer').startup({
 				opt = true
 			}
 		}
+		-- [[ Themes]]
 		use { 'Mofiqul/dracula.nvim' }
+		use { 'projekt0n/github-nvim-theme'}
 
 		-- [[ Dev ]]
 		use "nvim-lua/plenary.nvim"

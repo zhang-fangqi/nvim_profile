@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\DELL\\AppData\\Local\\nvim/site/pack\\packer\\start\\dracula.nvim",
     url = "https://github.com/Mofiqul/dracula.nvim"
   },
+  ["github-nvim-theme"] = {
+    loaded = true,
+    path = "C:\\Users\\DELL\\AppData\\Local\\nvim/site/pack\\packer\\start\\github-nvim-theme",
+    url = "https://github.com/projekt0n/github-nvim-theme"
+  },
   ["gv.vim"] = {
     loaded = true,
     path = "C:\\Users\\DELL\\AppData\\Local\\nvim/site/pack\\packer\\start\\gv.vim",
