@@ -1,63 +1,65 @@
-
 -- [[ plug.lua ]]
-return require('packer').startup({
-	function(use)
-		-- Packer can manage itself
-		use {'wbthomason/packer.nvim'}
-		-- [[ Plugins Go Here ]]
-		use{
-			'kyazdani42/nvim-tree.lua',
-			requires = 'kyazdani42/nvim-web-devicons'
-		}
-		use{ 'mhinz/vim-startify' }
-		use{ 'DanilaMihailov/beacon.nvim' }
-		use{
-			'nvim-lualine/lualine.nvim',	
-			require = {
-				'kyazdani42/nvim-web-devicons',
-				opt = true
-			}
-		}
-		-- [[ Themes]]
-		use { 'Mofiqul/dracula.nvim' }
-		use { 'projekt0n/github-nvim-theme'}
 
-		-- [[ Dev ]]
-		use "nvim-lua/plenary.nvim"
-		use {
-			-- fuzzy finder
-			'nvim-telescope/telescope.nvim',	
-			requires = { 
-				{'nvim-lua/plenary.nvim'},
-				{'nvim-treesitter/nvim-treesitter'}
-			}
-  		}
 
-		-- code structure
-  		use { 'majutsushi/tagbar' }			
-		-- see indentation
-  		use { 'Yggdroot/indentLine' }                   
-		-- git integration
-  		use { 'tpope/vim-fugitive' }                    
-		-- commit history
-  		use { 'junegunn/gv.vim' }                       
-  		use { 'windwp/nvim-autopairs' } 
-		-- use vim terminal in the floating/popup window
-		use { 'voldikss/vim-floaterm' }			
-		-- speed up loading Lua modules in Nvim to improve startup time
-		use { 'lewis6991/impatient.nvim' }
-		-- quickly toggle comments
-		use { 'tpope/vim-commentary' }
-		--visualizes undo history 
-		use { 'mbbill/undotree' }
-		-- easily surround chunks of text with brackets, quotes, tags, and more
-		use { 'tpope/vim-surround' }
-		--craft a personal knowledgebase
-		use { 'vimwiki/vimwiki' }
-		--
-		use { 'easymotion/vim-easymotion' }
-	end,
-	config = {
-		package_root = vim.fn.stdpath('config') .. '/site/pack'
-	}
+require("lazy").setup({
+	-- [[ Plugins Go Here ]]
+	{
+		'kyazdani42/nvim-tree.lua',
+		dependencies = 'nvim-tree/nvim-web-devicons'
+	},
+	'mhinz/vim-startify',
+	'DanilaMihailov/beacon.nvim',
+	{
+		'nvim-lualine/lualine.nvim',
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			opt = true
+		}
+	},
+	-- [[ Themes]]
+	-- {
+	-- 	'goolord/alpha-nvim',
+	-- 	dependencies = { 'nvim-tree/nvim-web-devicons' },
+	-- 	config = function()
+	-- 		require 'alpha'.setup(require 'alpha.themes.startify'.config)
+	-- 	end
+	-- },
+	-- 'Mofiqul/dracula.nvim',
+	'projekt0n/github-nvim-theme',
+
+	-- [[ Dev ]]
+	"nvim-lua/plenary.nvim",
+	{
+		-- fuzzy finder
+		'nvim-telescope/telescope.nvim',
+		dependencies = {
+			{ 'nvim-lua/plenary.nvim' },
+			{ 'nvim-treesitter/nvim-treesitter' }
+		}
+	},
+
+	-- [[ Edit ]]
+	-- easily surround chunks of text with brackets, quotes, tags, and more
+	'tpope/vim-surround',
+	-- a much simpler way to use some motions in vim
+	'easymotion/vim-easymotion',
+	-- quickly toggle comments
+	'tpope/vim-commentary',
+	-- A super powerful autopair plugin
+	'windwp/nvim-autopairs',
+
+	-- code structure
+	'majutsushi/tagbar',
+	-- see indentation
+	'Yggdroot/indentLine',
+	-- git integration
+	'tpope/vim-fugitive',
+	-- commit history
+	'junegunn/gv.vim',
+	-- use vim terminal in the floating/popup window
+	'voldikss/vim-floaterm',
+	--visualizes undo history
+	'mbbill/undotree',
+	-- craft a personal knowledgebase
+	'vimwiki/vimwiki',
 })

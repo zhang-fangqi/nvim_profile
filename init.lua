@@ -1,26 +1,73 @@
 --[[ init.lua ]]
-
--- LEADER
--- These keybindings need to be defined before the first /
--- is called; otherwise, it will default to "\"
-vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+local lazypath = vim.fn.stdpath("config") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
 -- IMPORTS
-require('vars')      -- Variables
-require('opts')      -- Options
-require('keys')      -- Keymaps
 require('plug')      -- Plugins
+require('opts')      -- Options
+require('vars')      -- Variables
+require('keys')      -- Keymaps
+require('cmds')      -- Commands
 
 -- PLUGINS: Add this section
-require('impatient')
-require('nvim-tree').setup{}
--- require('lualine').setup{
--- 	options = {
--- 		theme = 'dracula-nvim'
--- 	}
--- }
+require("nvim-tree").setup({
+  -- sort_by = "case_sensitive",
+  -- hijack_cursor = true,
+  -- system_open = {
+  --   cmd = "open",
+  -- },
+  -- view = {
+  --   width = 5,
+  --   adaptive_size = true,
+  -- },
+  -- renderer = {
+  --   group_empty = true,
+  --   icons = {
+  --     show = {
+  --       git = true,
+  --       file = false,
+  --       folder = false,
+  --       folder_arrow = true,
+  --     },
+  --     glyphs = {
+  --       bookmark = " ",
+  --       folder = {
+  --         arrow_closed = "⏵",
+  --         arrow_open = "⏷",
+  --       },
+  --       git = {
+  --         unstaged = "✗",
+  --         staged = "✓",
+  --         unmerged = "⌥",
+  --         renamed = "➜",
+  --         untracked = "★",
+  --         deleted = "⊖",
+  --         ignored = "◌",
+  --       },
+  --     },
+  --   },
+  -- },
+  -- filters = {
+  --   dotfiles = false,
+  -- },
+})
+require('lualine').setup{
+	options = {
+		theme = 'github_light',
+		section_separators = '',
+		component_separators = ''
+	}
+}
 require('nvim-autopairs').setup{}
 require('telescope').setup{
   defaults = {
