@@ -4,8 +4,14 @@
 require("lazy").setup({
 	-- [[ Plugins Go Here ]]
 	{
-		'kyazdani42/nvim-tree.lua',
-		dependencies = 'nvim-tree/nvim-web-devicons'
+		"nvim-tree/nvim-tree.lua",
+		version = "*",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("nvim-tree").setup {}
+		end,
 	},
 	'mhinz/vim-startify',
 	'DanilaMihailov/beacon.nvim',
@@ -37,7 +43,6 @@ require("lazy").setup({
 			{ 'nvim-treesitter/nvim-treesitter' }
 		}
 	},
-
 	-- [[ Edit ]]
 	-- easily surround chunks of text with brackets, quotes, tags, and more
 	'tpope/vim-surround',

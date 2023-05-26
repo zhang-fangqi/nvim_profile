@@ -24,10 +24,11 @@ vim.keymap.set({'n', 'x'}, 'cv', '"+p')
 vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 
 -- Toggle nvim-tree
-map('n', 'n', [[:NvimTreeToggle]], {})
+map('n', 'n', [[:NvimTree]], {})
 
 -- Toggle more plugins
 --map('n', 'l', [[:IndentLinesToggle]], {})
 map('n', 't', [[:TagBarToggle]], {})
 map('n', 'ff', [[:Telescope find_files]], {})
 
+vim.cmd([[cnoremap <C-S-v> <C-r>+]])
