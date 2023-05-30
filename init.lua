@@ -12,6 +12,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- vim.g.gui_font_default_size = 12
+-- vim.g.gui_font_size = vim.g.gui_font_default_size
+-- vim.g.gui_font_face = "FiraMono Nerd Font Mono"
+vim.o.guifont = "FiraMono Nerd Font Mono:h12"
+
 -- IMPORTS
 require('plug')      -- Plugins
 require('opts')      -- Options

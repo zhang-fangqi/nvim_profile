@@ -2,6 +2,9 @@
 local opt = vim.opt
 local cmd = vim.api.nvim_command
 
+-- [[ Global ]]
+vim.o.guifont = "Cascadia Mono:h12"
+
 -- [[ Context ]]
 opt.colorcolumn = '80'           -- str:  Show col for max line length
 opt.number = true                -- bool: Show line numbers
